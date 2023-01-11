@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/workexp")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = {"http://localhost:4200", "https://zurc-portfolio.web.app"})
 public class WorkExpController {
     @Autowired
     WorkExpService workExpService;
