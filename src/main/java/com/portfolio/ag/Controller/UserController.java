@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +40,7 @@ public class UserController {
         return new ResponseEntity(user, HttpStatus.OK);
     }
     
-    /*@DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!impUserService.existsById(id)) {
             return new ResponseEntity(new Message("\"User doesn't exist\""), HttpStatus.NOT_FOUND);
@@ -54,11 +56,11 @@ public class UserController {
         if(impUserService.existsByName(userDto.getName()))
             return new ResponseEntity(new Message("Name exists"), HttpStatus.BAD_REQUEST);
         
-        User user = new User(userDto.getName(), userDto.getLastName(), userDto.getDescription(), userDto.getImg());
+        User user = new User(userDto.getName(), userDto.getLastName(), userDto.getAbout(), userDto.getImg());
         impUserService.save(user);
         
         return new ResponseEntity(new Message("User added succesfully"), HttpStatus.OK);
-    }*/
+    }
     
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody UserDto userDto){
