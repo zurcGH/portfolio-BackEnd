@@ -43,7 +43,7 @@ public class WorkExpController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!workExpService.existsById(id)) {
-            return new ResponseEntity(new Message("\"WorkExp doesn't exist\""), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Message("WorkExp doesn't exist"), HttpStatus.NOT_FOUND);
         }
         workExpService.delete(id);
         return new ResponseEntity(new Message("WorkExp deleted succesfully"), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class WorkExpController {
         if(workExpService.existsByWorkName(workExpDto.getWorkName()))
             return new ResponseEntity(new Message("WorkExp exists"), HttpStatus.BAD_REQUEST);
         
-        WorkExp workExp = new WorkExp(workExpDto.getWorkName(), workExpDto.getWorkInfo());
+        WorkExp workExp = new WorkExp(workExpDto.getWorkName(), workExpDto.getWorkInfo(), workExpDto.getWorkDate(), workExpDto.getWorkImg());
         workExpService.save(workExp);
         
         return new ResponseEntity(new Message("WorkExp added succesfully"), HttpStatus.OK);
@@ -74,6 +74,8 @@ public class WorkExpController {
         WorkExp workExp = workExpService.getOne(id).get();
         workExp.setWorkName(workExpDto.getWorkName());
         workExp.setWorkInfo((workExpDto.getWorkInfo()));
+        workExp.setWorkDate(workExpDto.getWorkDate());
+        workExp.setWorkImg(workExpDto.getWorkImg());
         
         workExpService.save(workExp);
         return new ResponseEntity(new Message("WorkExp updated succesfully"), HttpStatus.OK);    

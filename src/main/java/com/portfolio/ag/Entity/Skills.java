@@ -12,15 +12,20 @@ public class Skills {
     private int id;
     private String skill;
     private int percentage;
+    private String skillImg;
 
+    
+    //Constructors
     public Skills() {
     }
 
-    public Skills(String skill, int percentage) {
+    public Skills(String skill, int percentage, String skillImg) {
         this.skill = skill;
         this.percentage = percentage;
+        this.skillImg = skillImg;
     }
 
+    //Getters - Setters
     public int getId() {
         return id;
     }
@@ -43,5 +48,13 @@ public class Skills {
 
     public void setPercentage(int percentage) {
         this.percentage = percentage;
+    }
+
+    public String getSkillImg() {
+        return skillImg;
+    }
+
+    public void setSkillImg(String skillImg) {
+        this.skillImg = skillImg;
     }
 }

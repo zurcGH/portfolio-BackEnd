@@ -12,17 +12,21 @@ public class WorkExp {
     private int id;
     private String workName;
     private String workInfo;
+    private String workDate;
+    private String workImg;
     
     //Constructors
     public WorkExp() {
     }
 
-    public WorkExp(String workName, String workInfo) {
+    public WorkExp(String workName, String workInfo, String workDate, String workImg) {
         this.workName = workName;
         this.workInfo = workInfo;
+        this.workDate = workDate;
+        this.workImg = workImg;
     }
     
-    //Getters - setters
+    //Getters - Setters
     public int getId() {
         return id;
     }
@@ -46,5 +50,20 @@ public class WorkExp {
     public void setWorkInfo(String workInfo) {
         this.workInfo = workInfo;
     }
-    
+
+    public String getWorkDate() {
+        return workDate;
+    }
+
+    public void setWorkDate(String workDate) {
+        this.workDate = workDate;
+    }
+
+    public String getWorkImg() {
+        return workImg;
+    }
+
+    public void setWorkImg(String workImg) {
+        this.workImg = workImg;
+    }
 }

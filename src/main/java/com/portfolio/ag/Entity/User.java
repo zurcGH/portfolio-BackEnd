@@ -25,7 +25,8 @@ public class User {
     private String about;
     
     private String img;
-
+    
+    //Constructor
     public User() {
     }
 
@@ -35,7 +36,8 @@ public class User {
         this.about = about;
         this.img = img;
     }
-
+    
+    //Getters - Setters
     public int getId() {
         return id;
     }

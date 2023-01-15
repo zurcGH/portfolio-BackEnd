@@ -60,7 +60,7 @@ public class SkillsController {
             return new ResponseEntity(new Message("Skill already exists"), HttpStatus.BAD_REQUEST);
         }
 
-        Skills skills = new Skills(skillsDto.getSkill(), skillsDto.getPercentage());
+        Skills skills = new Skills(skillsDto.getSkill(), skillsDto.getPercentage(), skillsDto.getSkillImg());
         skillsService.save(skills);
 
         return new ResponseEntity(new Message("Skill added succesfully"), HttpStatus.OK);
@@ -84,6 +84,7 @@ public class SkillsController {
         Skills skills = skillsService.getOne(id).get();
         skills.setSkill(skillsDto.getSkill());
         skills.setPercentage(skillsDto.getPercentage());
+        skills.setSkillImg(skillsDto.getSkillImg());
 
         skillsService.save(skills);
         return new ResponseEntity(new Message("Skill updated succesfully"), HttpStatus.OK);

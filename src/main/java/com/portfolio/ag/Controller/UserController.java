@@ -43,7 +43,7 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!impUserService.existsById(id)) {
-            return new ResponseEntity(new Message("\"User doesn't exist\""), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Message("User doesn't exist"), HttpStatus.NOT_FOUND);
         }
         impUserService.delete(id);
         return new ResponseEntity(new Message("User deleted succesfully"), HttpStatus.OK);

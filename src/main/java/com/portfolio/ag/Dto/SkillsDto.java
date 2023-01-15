@@ -8,15 +8,20 @@ public class SkillsDto {
     private String skill;
     @NotBlank
     private int percentage;
-
+    @NotBlank
+    private String skillImg;
+    
+    //Constructors
     public SkillsDto() {
     }
 
-    public SkillsDto(String skill, int percentage) {
+    public SkillsDto(String skill, int percentage, String skillImg) {
         this.skill = skill;
         this.percentage = percentage;
+        this.skillImg = skillImg;
     }
 
+    //Getters - Setters
     public String getSkill() {
         return skill;
     }
@@ -31,5 +36,13 @@ public class SkillsDto {
 
     public void setPercentage(int percentage) {
         this.percentage = percentage;
+    }
+
+    public String getSkillImg() {
+        return skillImg;
+    }
+
+    public void setSkillImg(String skillImg) {
+        this.skillImg = skillImg;
     }
 }

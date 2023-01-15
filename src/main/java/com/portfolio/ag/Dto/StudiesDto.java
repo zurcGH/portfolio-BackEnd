@@ -7,14 +7,20 @@ public class StudiesDto {
     private String studyName;
     @NotBlank
     private String studyInfo;
+    @NotBlank
+    private String studyDate;
+    @NotBlank
+    private String studyImg;
     
     //Constructors
     public StudiesDto() {
     }
 
-    public StudiesDto(String studyName, String studyInfo) {
+    public StudiesDto(String studyName, String studyInfo, String studyDate, String studyImg) {
         this.studyName = studyName;
         this.studyInfo = studyInfo;
+        this.studyDate = studyDate;
+        this.studyImg = studyImg;
     }
     
     //Getters - Setters
@@ -32,5 +38,21 @@ public class StudiesDto {
 
     public void setStudyInfo(String studyInfo) {
         this.studyInfo = studyInfo;
+    }
+
+    public String getStudyDate() {
+        return studyDate;
+    }
+
+    public void setStudyDate(String studyDate) {
+        this.studyDate = studyDate;
+    }
+
+    public String getStudyImg() {
+        return studyImg;
+    }
+
+    public void setStudyImg(String studyImg) {
+        this.studyImg = studyImg;
     }
 }

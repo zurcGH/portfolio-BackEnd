@@ -7,14 +7,20 @@ public class WorkExpDto {
     private String workName;
     @NotBlank
     private String workInfo;
+    @NotBlank
+    private String workDate;
+    @NotBlank
+    private String workImg;
     
     //Constructors
     public WorkExpDto() {
     }
 
-    public WorkExpDto(String workName, String workInfo) {
+    public WorkExpDto(String workName, String workInfo, String workDate, String workImg) {
         this.workName = workName;
         this.workInfo = workInfo;
+        this.workDate = workDate;
+        this.workImg = workImg;
     }
     
     //Getters - Setters
@@ -32,5 +38,21 @@ public class WorkExpDto {
 
     public void setWorkInfo(String workInfo) {
         this.workInfo = workInfo;
+    }
+
+    public String getWorkDate() {
+        return workDate;
+    }
+
+    public void setWorkDate(String workDate) {
+        this.workDate = workDate;
+    }
+
+    public String getWorkImg() {
+        return workImg;
+    }
+
+    public void setWorkImg(String workImg) {
+        this.workImg = workImg;
     }
 }

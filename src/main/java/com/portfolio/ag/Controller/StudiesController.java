@@ -43,7 +43,7 @@ public class StudiesController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!studiesService.existsById(id)) {
-            return new ResponseEntity(new Message("\"Studies doesn't exist\""), HttpStatus.NOT_FOUND);
+            return new ResponseEntity(new Message("Studies doesn't exist"), HttpStatus.NOT_FOUND);
         }
         studiesService.delete(id);
         return new ResponseEntity(new Message("Studies deleted succesfully"), HttpStatus.OK);
@@ -56,7 +56,7 @@ public class StudiesController {
         if(studiesService.existsByStudyName(studiesDto.getStudyName()))
             return new ResponseEntity(new Message("Studies exists"), HttpStatus.BAD_REQUEST);
         
-        Studies studies = new Studies(studiesDto.getStudyName(), studiesDto.getStudyInfo());
+        Studies studies = new Studies(studiesDto.getStudyName(), studiesDto.getStudyInfo(), studiesDto.getStudyDate(), studiesDto.getStudyImg());
         studiesService.save(studies);
         
         return new ResponseEntity(new Message("Studies added succesfully"), HttpStatus.OK);
@@ -74,6 +74,8 @@ public class StudiesController {
         Studies studies = studiesService.getOne(id).get();
         studies.setStudyName(studiesDto.getStudyName());
         studies.setStudyInfo((studiesDto.getStudyInfo()));
+        studies.setStudyDate(studiesDto.getStudyDate());
+        studies.setStudyImg(studiesDto.getStudyImg());
         
         studiesService.save(studies);
         return new ResponseEntity(new Message("Studies updated succesfully"), HttpStatus.OK);    
